@@ -88,21 +88,52 @@ add maven plugin inpom.xml
    <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-dependency-plugin</artifactId>
-    <executions>
-     <execution>
-      <id>copy-dependencies</id>
-      <phase>prepare-package</phase>
-      <goals>
-       <goal>copy-dependencies</goal>
-      </goals>
-      <configuration>
-       <outputDirectory>${project.build.directory}/ant-project/WebContent/WEB-INF/lib</outputDirectory>
-       <overWriteReleases>false</overWriteReleases>
-       <overWriteSnapshots>false</overWriteSnapshots>
-       <overWriteIfNewer>true</overWriteIfNewer>
-      </configuration>
-     </execution>
-    </executions>
+				<executions>
+<!-- 					<execution> -->
+<!-- 						<id>copy-dependencies</id> -->
+<!-- 						<phase>prepare-package</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>copy-dependencies</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<outputDirectory>${project.build.directory}/ant-project/WebContent/WEB-INF/lib</outputDirectory> -->
+<!-- 							<overWriteReleases>false</overWriteReleases> -->
+<!-- 							<overWriteSnapshots>false</overWriteSnapshots> -->
+<!-- 							<overWriteIfNewer>true</overWriteIfNewer> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+					<execution>
+						<id>copy-dependencies-runtime</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<!--http://maven.apache.org/plugins/maven-dependency-plugin/copy-dependencies-mojo.html#includeScope -->
+							<includeScope>runtime</includeScope>
+							<excludeTransitive>false</excludeTransitive>
+							<outputDirectory>${project.build.directory}/ant-project/WebContent/WEB-INF/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-dependencies-system</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeScope>system</includeScope>
+							<excludeTransitive>true</excludeTransitive>
+							<outputDirectory>${project.build.directory}/ant-project/WebContent/WEB-INF/lib</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
    </plugin>    
   </plugins>
  </build>
