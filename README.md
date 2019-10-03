@@ -144,8 +144,8 @@ add ant's build.xml template in {project.basedir}/src/ant-template/build.xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="war" name="SampleWeb">
- <property name="project.name" value="SampleWeb" />
+<project basedir="." default="war" name="${project.artifactId}">
+ <property name="project.name" value="${project.artifactId}" />
  <property environment="env" />
  <property name="debuglevel" value="source,lines,vars" />
  <property name="target" value="1.8" />
@@ -218,6 +218,8 @@ target/ant-project/
 ├── src
 └── WebContent
 ```
+You can see the variable "${project.artifactId}" , "${project.name}" changed  
+
 we can entry into the folder {project.basedir}/target/ant-project/
 
 ```
