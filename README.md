@@ -193,3 +193,6 @@ we can entry into the folder {project.basedir}/target/ant-project/
 $ cd target/ant-project/
 $ ant
 ```
+
+###  Known issues
+Test libraies does not need to be packaged into ant's artifect. 
