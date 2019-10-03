@@ -112,7 +112,7 @@ add maven plugin inpom.xml
 add ant's build.xml template in {project.basedir}/src/ant-template/build.xml
 
 ```xml
-?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="war" name="SampleWeb">
  <property name="project.name" value="SampleWeb" />
  <property environment="env" />
